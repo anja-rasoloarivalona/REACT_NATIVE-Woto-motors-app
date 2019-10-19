@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, Button} from 'react-native';
 
 const SingleProductScreen = props => {
     return (
         <View style={styles.screen}>
             <Text>Single Product</Text>
+            <Button title='gallery'
+                    onPress={() => props.navigation.navigate('SingleProductGallery')}/>
         </View>
 
     )

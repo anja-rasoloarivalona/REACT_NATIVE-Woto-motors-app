@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Button, FlatList, ActivityIndicator } from 'react-native';
 import Product from '../components/ProductCard';
+import Colors from '../constants/Colors';
 
 
 class ProductsScreen extends Component {
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#E7E5E5'
+        backgroundColor: Colors.greyLight
     },
     centered : {
         flex: 1,

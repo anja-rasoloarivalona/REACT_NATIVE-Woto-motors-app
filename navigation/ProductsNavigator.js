@@ -17,12 +17,22 @@ import UserAccountScreen from '../screens/UserAccountScreen'
 const ProductsNavigator = createStackNavigator({
     Products: ProductsScreen,
     SingleProduct : SingleProductScreen,
-    SingleProductGallery: SingleProductGalleryScreen
-   /* SingleProduct : {
-        screen: SingleProductScreen
-        }
-    */
+    SingleProductGallery:  SingleProductGalleryScreen
 })
+
+ProductsNavigator.navigationOptions =  ({ navigation }) => {
+    let tabBarVisible;
+      navigation.state.routes.map(route => {
+        if (route.routeName === "SingleProductGallery") {
+          tabBarVisible = false;
+        } else {
+          tabBarVisible = true;
+        }
+      });
+    return {
+      tabBarVisible
+    };
+  };
 
 
 const bottomTabNavigatorConfig = {

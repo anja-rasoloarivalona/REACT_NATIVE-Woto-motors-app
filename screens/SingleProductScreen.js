@@ -86,7 +86,11 @@ class SingleProductScreen extends Component {
         
         return (
             <ScrollView style={styles.screen}>
-                <Image style={styles.image} source={{uri: product.general[0].mainImgUrl}}/>
+                
+                <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('SingleProductGallery', {imageUrls: product.imageUrls })}>
+                    <Image style={styles.image} source={{uri: product.general[0].mainImgUrl}}/>
+                </TouchableWithoutFeedback>
+                
 
                 <View style={styles.main}>
                     <Text style={styles.mainTitle}>{product.general[0].made} {product.general[0].model} {product.general[0].year}</Text>
@@ -116,11 +120,6 @@ class SingleProductScreen extends Component {
                 </View>
 
                 {info}
-                
-
-
-                <Button title='gallery'
-                        onPress={() => this.props.navigation.navigate('SingleProductGallery')}/>
             </ScrollView>
         )
     }
@@ -205,7 +204,6 @@ const styles = StyleSheet.create({
     },
 
     detail: {
-        marginBottom: 200,
         paddingVertical: 20,
         paddingHorizontal: 35
     },

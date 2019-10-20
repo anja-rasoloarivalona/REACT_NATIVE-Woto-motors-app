@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Image, Dimensions } from 'react-native';
 import Icon from '../assets/Icon';
-
+import Colors from '../constants/Colors';
 
 
 let width = Dimensions.get('window').width;
@@ -15,9 +15,7 @@ const ProductCard = props => {
     return (
         <TouchableWithoutFeedback>
             <View style={styles.card}>
-
-                <Image style={styles.image} source={{uri: props.image}}/>
-               
+                <Image style={styles.image} source={{uri: props.image}}/>             
                 <View style={styles.main}>
                     <Text style={styles.mainTitle}>{props.made} {props.model} {props.year}</Text>
                     <View style={styles.mainPrice}>
@@ -25,21 +23,19 @@ const ProductCard = props => {
                     </View>
                     
                 </View>
-
-
                 <View style={styles.details}>
 
                     <View style={styles.detailsItem}>
                         <Text style={styles.detailsItemText}>130 000</Text>
-                        <Icon name='Road' width='20' height='20' fill='grey'/>
+                        <Icon name='Road' width='20' height='20' fill={Colors.grey}/>
                     </View>
                     <View style={styles.detailsItem}>
                         <Text style={styles.detailsItemText}>essence</Text>
-                        <Icon name='GasStation' width='20' height='20' fill='grey'/>
+                        <Icon name='GasStation' width='20' height='20' fill={Colors.grey}/>
                     </View>
                     <View style={styles.detailsItem}>
                         <Text style={styles.detailsItemText}>manuelle</Text>
-                        <Icon name='Gear' width='20' height='20' fill='grey'/>
+                        <Icon name='Gear' width='20' height='20' fill={Colors.grey}/>
                     </View>
                 </View>
             </View>
@@ -51,7 +47,7 @@ const ProductCard = props => {
 const styles = StyleSheet.create({
     card : {
         width: '100%',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: Colors.white,
         marginBottom: 15
     },
 
@@ -69,7 +65,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         paddingVertical: 17,
         borderBottomWidth: 1,
-        borderBottomColor: '#E7E5E5',
+        borderBottomColor: Colors.greyLight,
     },
 
     mainTitle : {
@@ -78,7 +74,7 @@ const styles = StyleSheet.create({
     },
 
     mainPrice: {
-        backgroundColor: '#d85803',
+        backgroundColor: Colors.primary,
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 5,
@@ -86,7 +82,7 @@ const styles = StyleSheet.create({
     },
 
     mainPriceText: {
-        color: 'white'
+        color: Colors.white
     },
 
     details: {
@@ -102,7 +98,7 @@ const styles = StyleSheet.create({
 
     detailsItemText: {
         marginRight: 20,
-        color: 'grey'
+        color: Colors.grey
     }
 
 })

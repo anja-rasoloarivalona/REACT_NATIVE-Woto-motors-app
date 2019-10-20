@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#D1D0CE'
+        backgroundColor: '#E7E5E5'
     },
     centered : {
         flex: 1,

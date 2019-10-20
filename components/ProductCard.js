@@ -67,10 +67,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 15,
-        paddingVertical: 20,
+        paddingVertical: 17,
         borderBottomWidth: 1,
-        borderBottomColor: 'grey',
-       
+        borderBottomColor: '#E7E5E5',
     },
 
     mainTitle : {
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
     },
 
     mainPrice: {
-        backgroundColor: 'orange',
+        backgroundColor: '#d85803',
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 5,
@@ -92,10 +91,9 @@ const styles = StyleSheet.create({
 
     details: {
         flexDirection: 'row',
-        height: 30,
         alignItems: 'center',
         paddingHorizontal: 15,
-        paddingVertical: 10,
+        paddingVertical: 12,
         justifyContent: 'space-between',
     },
     detailsItem : {

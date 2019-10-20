@@ -25,9 +25,6 @@ class ProductsScreen extends Component {
 
 
     fetchProductsHandler = () => {
-
-        console.log('fetching')
-
         let url = "https://africauto.herokuapp.com/products";
         fetch(url, {
             headers: {
@@ -38,17 +35,11 @@ class ProductsScreen extends Component {
             if(res.status !== 200){
                 throw new Error("Failed to fetch products")
             }
-
-            console.log('reeees')
-
             return res.json()
         })
         .then( resData => {
-
             let products = this.shuffle(resData.products)
-
             this.setState({ products: products, loading: false})
-
   
         })
         .catch( err => {
@@ -85,7 +76,11 @@ class ProductsScreen extends Component {
                                                 made={itemData.item.general[0].made}
                                                 model={itemData.item.general[0].model}
                                                 year={itemData.item.general[0].year}
-                                                price={itemData.item.general[0].price}/>
+                                                price={itemData.item.general[0].price}
+                                                
+                                                onViewDetail={ () => {
+                                                    this.props.navigation.navigate('SingleProduct', {prodId: itemData.item._id})
+                                                }}/>
                                 }
                 />
 

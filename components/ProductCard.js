@@ -13,7 +13,7 @@ const ProductCard = props => {
 
 
     return (
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={props.onViewDetail}>
             <View style={styles.card}>
                 <Image style={styles.image} source={{uri: props.image}}/>             
                 <View style={styles.main}>

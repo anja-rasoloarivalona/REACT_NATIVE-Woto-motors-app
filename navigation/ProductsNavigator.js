@@ -10,15 +10,34 @@ import SingleProductScreen from '../screens/SingleProductScreen';
 import SingleProductGalleryScreen from '../screens/SingleProductGalleryImageScreen';
 import FilterScreen from '../screens/FiltersScreen';
 import FavoriteScreen from '../screens/FavoritesScreen';
-import UserAccountScreen from '../screens/UserAccountScreen'
+import UserAccountScreen from '../screens/UserAccountScreen';
 
 
+import Colors from '../constants/Colors'
+
+
+const defaultStackNavOptions = {
+    /*headerTitleStyle: {
+      fontFamily: 'open-sans-bold'
+    },
+    headerBackTitleStyle: {
+      fontFamily: 'open-sans'
+    },*/
+    headerTintColor: Colors.primary,
+    headerTitle: 'WOTO',
+    headerTitleStyle: {
+        fontWeight: 'bold'
+    }
+  };
 
 const ProductsNavigator = createStackNavigator({
     Products: ProductsScreen,
     SingleProduct : SingleProductScreen,
     SingleProductGallery:  SingleProductGalleryScreen
-})
+}, {
+    defaultNavigationOptions: defaultStackNavOptions
+    }
+)
 
 ProductsNavigator.navigationOptions =  ({ navigation }) => {
     let tabBarVisible;
@@ -30,7 +49,7 @@ ProductsNavigator.navigationOptions =  ({ navigation }) => {
         }
       });
     return {
-      tabBarVisible
+      tabBarVisible,
     };
   };
 
@@ -73,7 +92,8 @@ const bottomTabNavigatorConfig = {
 
 const BottomNavigator = createBottomTabNavigator(bottomTabNavigatorConfig, {
     tabBarOptions: {
-        showLabel: false
+        showLabel: false,
+        activeTintColor: Colors.primary
     }
 })
 

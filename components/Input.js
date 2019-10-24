@@ -1,53 +1,43 @@
-import React, {useState} from 'react';
-import { View, TextInput, Button, StyleSheet, Modal } from 'react-native';
-
-const  Input = props => {
-
-     const [enteredValue, setEnteredValue] = useState("");
-
-     inputHandler = value => {
-        setEnteredValue(value);
-      };
+import React from 'react'
+import { View, TextInput, StyleSheet, Text} from 'react-native';
 
 
-      addInputHandler = () => {
-        props.onAddInput(enteredValue);
-        setEnteredValue('')
-      }
 
-
-    return (
-        <Modal visible={props.visible} animationType='slide'>
-            <View style={s.inputContainer}>
-                <TextInput
-                placeholder="input"
-                style={s.input}
-                onChangeText={inputHandler}
-                value={enteredValue}
-                />
-                <Button title="ADD" onPress={addInputHandler} />
-            </View>
-        </Modal>
-        
-    )
+const Input = props => {
+  return (
+    <View style={Styles.formControl}>
+        <Text style={Styles.label}>{props.label}</Text>
+        <TextInput 
+            {...props}
+            style={Styles.input}
+            id={props.id}
+          
+            value={props.value}
+            onChangeText={props.onChangeTextHandler} 
+        />
+      </View>
+  )
 }
 
-const s = StyleSheet.create({
-    input: {
-        borderColor: "black",
-        borderWidth: 1,
-        padding: 10,
-        margin: 10,
-        width: "80%"
-      },
-    
-      inputContainer: {
-        alignItems: "center",
-        justifyContent: 'center',
-        backgroundColor: 'red',
-        flex: 1
 
-      },
+
+
+const Styles = StyleSheet.create({
+
+    formControl: {
+        width: '80%'
+    },
+
+    label  : {
+        marginVertical: 8
+    },
+
+    input : {
+        paddingHorizontal: 2,
+        paddingVertical: 5,
+        borderBottomColor: '#ccc',
+        borderBottomWidth: 1
+    }
 })
 
 

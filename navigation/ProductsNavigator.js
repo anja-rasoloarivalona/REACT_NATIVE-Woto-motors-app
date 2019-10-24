@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { Ionicons, Entypo, Feather } from '@expo/vector-icons';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import ProductsScreen from '../screens/ProductsScreen';
@@ -12,6 +12,9 @@ import FilterScreen from '../screens/FiltersScreen';
 import FavoriteScreen from '../screens/FavoritesScreen';
 import UserAccountScreen from '../screens/UserAccountScreen';
 import MessagesScreen from '../screens/MessagesScreen';
+import AuthScreen from '../screens/AuthScreen'
+import StartupScreen from '../screens/StartupScreen'
+
 
 import Icon from '../assets/Icon';
 
@@ -131,5 +134,11 @@ const BottomNavigator = createBottomTabNavigator(bottomTabNavigatorConfig, {
 })
 
 
+const MainNavigator = createSwitchNavigator({
+    Startup: StartupScreen,
+    Auth: AuthScreen,
+    Main: BottomNavigator
+})
 
-export default createAppContainer(BottomNavigator)
+
+export default createAppContainer(MainNavigator)

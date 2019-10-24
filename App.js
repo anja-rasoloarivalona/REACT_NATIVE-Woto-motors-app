@@ -1,9 +1,42 @@
 import React, { Component } from 'react'
 import ProductsNavigator from './navigation/ProductsNavigator';
+import { createStore, applyMiddleware, combineReducers, compose} from 'redux'
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 
- class App extends Component {
+import authReducer from './store/reducers/auth';
+import { YellowBox } from 'react-native';
+
+const rootReducer = combineReducers({
+  auth: authReducer
+})
+
+const store = createStore(
+rootReducer,
+compose(applyMiddleware(thunk))
+)
+
+
+class App extends Component {
+
+  componentDidMount(){
+    console.ignoredYellowBox = ['Remote debugger'];
+    YellowBox.ignoreWarnings([
+     'Unrecognized WebSocket connection option(s) `agent`, `perMessageDeflate`, `pfx`, `key`, `passphrase`, `cert`, `ca`, `ciphers`, `rejectUnauthorized`. Did you mean to put these under `headers`?'
+    ]);
+  }
+
+
+
   render() {
-    return <ProductsNavigator />
+
+   
+    return (
+      <Provider store={store}>
+        <ProductsNavigator />
+      </Provider>
+
+    )
   }
 }
 

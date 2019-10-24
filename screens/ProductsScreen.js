@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, StyleSheet, Button, FlatList, ActivityIndicator } from 'react-native';
 import Product from '../components/ProductCard';
 import Colors from '../constants/Colors';
+import { connect } from 'react-redux'
 
 
 class ProductsScreen extends Component {
@@ -12,7 +13,9 @@ class ProductsScreen extends Component {
     }
 
     componentDidMount(){
-        this.fetchProductsHandler()
+        this.fetchProductsHandler();
+
+        console.log('auth', this.props.auth, this.props.token)
     }
 
 
@@ -123,4 +126,11 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ProductsScreen
+const mapStateToProps = state => {
+    return {
+        auth: state.auth.auth,
+        token: state.auth.token,
+        userId: state.auth.userId,
+    }
+}
+export default connect(mapStateToProps)(ProductsScreen)
